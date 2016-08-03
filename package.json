@@ -1,0 +1,27 @@
+{
+  "name": "lemuel",
+  "version": "1.0.0",
+  "description": "gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LemuelReyes/Project-Portfolio.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "lemuel reyes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LemuelReyes/Project-Portfolio/issues"
+  },
+  "homepage": "https://github.com/LemuelReyes/Project-Portfolio#readme",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}
