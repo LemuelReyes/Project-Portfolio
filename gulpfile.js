@@ -2,24 +2,30 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
     // webkits and filters are taken care of, you dont need to code it manually
-    autoprefixer = require('gulp-autoprefixer'),
+    prefix = require('gulp-autoprefixer'),
     notify = require('gulp-notify'),
     imagemin = require('gulp-imagemin'),
     uglify = require('gulp-uglify');
 
+// this function eliminates the need for gulp-plumber, the alternative
+    function errorLog(error) {
+        console.error.bind(error);
+        this.emit('end');
+    }
 
 // COMPILE SASS TASK
 
 //  styles is the name of the task, followed by it's functionality
  gulp.task('styles', function(){
 // source file
- gulp.src('./scss/main.scss')
-    .pipe(sass())
-    .pipe(autoprefixer({
-     browsers: ['last 2 versions']
+ gulp.src('./scss/**/*.scss')
+    .pipe(sass({
+        style: 'expanded'
     }))
+    .on('error', errorLog)
+    .pipe(prefix('last 2 versions'))
 // pipes to destination
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./css/'))
 // tell browserSync to reload
     .pipe(browserSync.reload({stream: true}));
  });
@@ -56,6 +62,7 @@ gulp.task('image', function(){
 gulp.task('scripts', function(){
     gulp.src('./js/*.js')
     .pipe(uglify())
+    .on('error', errorLog)
     .pipe(gulp.dest('minjs'));
 });
 
@@ -64,9 +71,9 @@ gulp.task('scripts', function(){
 // WATCHES JS
 gulp.task('watch', function(){
     // the comma [] means, when js files change, run this task.
-    gulp.watch('./js/*.js', ['uglifyjs'])
+    gulp.watch('./js/*.js', ['scripts']);
 });
 
 // RUN TASK! include the tasks that ive created in an order that makes sense. in other words, run this when i run gulp
 
-gulp.task('default', ['serve', 'scripts', 'styles', 'watch']);
+gulp.task('default', ['scripts', 'serve', 'styles', 'watch']);
