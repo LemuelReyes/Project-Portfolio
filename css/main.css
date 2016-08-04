@@ -6,19 +6,23 @@ ul {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: end;
-      justify-content: flex-end; }
+      justify-content: flex-end;
+  position: absolute;
+  z-index: 2;
+  top: 3.2em;
+  right: 0em;
+  max-width: 60vw; }
   ul li {
-    padding-right: 2em; }
+    padding-right: 4em; }
     ul li span {
       color: #3fc6a5;
-      font-size: 3em; }
+      font-size: 2em; }
 
-h1 {
-  border: 1px solid rebeccapurple;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center; }
+.header-banner {
+  background-image: url("../img/lemuel-reyes-banner.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 1080px; }
 
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
