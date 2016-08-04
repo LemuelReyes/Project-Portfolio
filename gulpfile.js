@@ -37,28 +37,3 @@ gulp.task('serve', function() {
 // include the tasks that ive created in an order that makes sense. in other words, run this when i run gulp
 
 gulp.task('default', ['styles', 'serve']);
-
-
-
-
-    // gulp.task('serve', ['sass'], function() {
-    //
-    //     browserSync.init({
-    //         server: "./"
-    //     });
-    //
-    //     gulp.watch("./sass/*.scss", ['sass']);
-    //     gulp.watch("./*.html").on('change', browserSync.reload);
-    //     gulp.watch("./*.css").on('change', browserSync.reload);
-    //
-    // });
-    //
-    //
-    // gulp.task('sass', function() {
-    // return gulp.src("./sass/*.scss")
-    //     .pipe(sass())
-    //     .pipe(gulp.dest("./css"))
-    //     .pipe(browserSync.stream());
-    // });
-    //
-    // gulp.task('default', ['serve']);

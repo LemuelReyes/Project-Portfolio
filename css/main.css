@@ -1,0 +1,12 @@
+body {
+  font-size: 12px; }
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; }
+  ul li {
+    padding-right: 2em; }
+    ul li span {
+      color: #3fc6a5;
+      font-size: 3em; }
