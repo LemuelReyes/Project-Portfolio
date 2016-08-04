@@ -22,7 +22,7 @@ ul {
   background-image: url("../img/lemuel-reyes-banner.png");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 1080px; }
+  height: 100vh; }
 
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
