@@ -37,16 +37,15 @@ gulp.task('serve', function(){
 // initializing browsersync, telling it where to serve from
 
     browserSync.init({
-        server: {
-            baseDir: './'
-        }
+        server: './',
+        online: true
     });
 
 // watch for any changes, every scss file in the scss directory and running the styles task everytime something changes. whenever this runs, browserSync
 // will reload all your browser
     gulp.watch('./scss/*.scss', ['styles']);
 // upon change of any html will reload browserSync
-    gulp.watch('./**/*.html').on('change', browserSync.reload);
+    gulp.watch('./*.html').on('change', browserSync.reload);
 });
 
 // IMAGE TASK (compress and optimize images automatically)
