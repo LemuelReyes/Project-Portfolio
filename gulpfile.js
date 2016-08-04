@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    // webkits and filters are taken care of, you dont need to code it manually
+    autoprefixer = require('gulp-autoprefixer');
 
 // COMPILE SASS
 
@@ -9,6 +11,9 @@ var gulp = require('gulp'),
 // source file
  gulp.src('./scss/main.scss')
     .pipe(sass())
+    .pipe(autoprefixer({
+     browsers: ['last 2 versions']
+    }))
 // pipes to destination
     .pipe(gulp.dest('./css'))
 // tell browserSync to reload
