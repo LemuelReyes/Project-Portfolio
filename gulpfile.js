@@ -4,7 +4,9 @@ var gulp = require('gulp'),
     // webkits and filters are taken care of, you dont need to code it manually
     autoprefixer = require('gulp-autoprefixer'),
     notify = require('gulp-notify'),
-    imagemin = require('gulp-imagemin');
+    imagemin = require('gulp-imagemin'),
+    uglify = require('gulp-uglify');
+
 
 // COMPILE SASS TASK
 
@@ -49,6 +51,15 @@ gulp.task('image', function(){
     .pipe(gulp.dest('./build/img'));
 });
 
-// include the tasks that ive created in an order that makes sense. in other words, run this when i run gulp
+// UGLIFY TASK  (cuts down file size)
 
-gulp.task('default', ['styles', 'serve']);
+gulp.task('uglifyjs', function(){
+    gulp.src('./js/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('minjs'));
+});
+
+
+// RUN TASK! include the tasks that ive created in an order that makes sense. in other words, run this when i run gulp
+
+gulp.task('default', ['styles', 'serve', 'uglifyjs']);
