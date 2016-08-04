@@ -6,12 +6,8 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     imagemin = require('gulp-imagemin'),
     uglify = require('gulp-uglify');
+    plumber = require('gulp-plumber');
 
-// this function eliminates the need for gulp-plumber, the alternative
-    function errorLog(error) {
-        console.error.bind(error);
-        this.emit('end');
-    }
 
 // COMPILE SASS TASK
 
@@ -19,13 +15,13 @@ var gulp = require('gulp'),
  gulp.task('styles', function(){
 // source file
  gulp.src('./scss/**/*.scss')
+    .pipe(plumber())
     .pipe(sass({
         style: 'expanded'
     }))
-    .on('error', errorLog)
     .pipe(prefix('last 2 versions'))
 // pipes to destination
-    .pipe(gulp.dest('./css/'))
+    .pipe(gulp.dest('./css'))
 // tell browserSync to reload
     .pipe(browserSync.reload({stream: true}));
  });
@@ -60,9 +56,9 @@ gulp.task('image', function(){
 //UGLIFY (cuts down file size)
 gulp.task('scripts', function(){
     gulp.src('./js/*.js')
+    .pipe(plumber())
     .pipe(uglify())
-    .on('error', errorLog)
-    .pipe(gulp.dest('minjs'));
+    .pipe(gulp.dest('./build/minjs'));
 });
 
 
@@ -75,4 +71,4 @@ gulp.task('watch', function(){
 
 // RUN TASK! include the tasks that ive created in an order that makes sense. in other words, run this when i run gulp
 
-gulp.task('default', ['scripts', 'serve', 'styles', 'watch']);
+gulp.task('default', ['serve', 'scripts', 'styles', 'watch']);
