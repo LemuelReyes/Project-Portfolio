@@ -51,15 +51,22 @@ gulp.task('image', function(){
     .pipe(gulp.dest('./build/img'));
 });
 
-// UGLIFY TASK  (cuts down file size)
-
-gulp.task('uglifyjs', function(){
+// SCRIPTS TASK
+//UGLIFY (cuts down file size)
+gulp.task('scripts', function(){
     gulp.src('./js/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('minjs'));
 });
 
 
+// WATCH TASK
+// WATCHES JS
+gulp.task('watch', function(){
+    // the comma [] means, when js files change, run this task.
+    gulp.watch('./js/*.js', ['uglifyjs'])
+});
+
 // RUN TASK! include the tasks that ive created in an order that makes sense. in other words, run this when i run gulp
 
-gulp.task('default', ['styles', 'serve', 'uglifyjs']);
+gulp.task('default', ['serve', 'scripts', 'styles', 'watch']);
