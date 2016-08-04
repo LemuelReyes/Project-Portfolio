@@ -2,9 +2,11 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
     // webkits and filters are taken care of, you dont need to code it manually
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    notify = require('gulp-notify'),
+    imagemin = require('gulp-imagemin');
 
-// COMPILE SASS
+// COMPILE SASS TASK
 
 //  styles is the name of the task, followed by it's functionality
  gulp.task('styles', function(){
@@ -20,9 +22,9 @@ var gulp = require('gulp'),
     .pipe(browserSync.reload({stream: true}));
  });
 
-// BROWSERSYNC
+// BROWSERSYNC TASK
 
-gulp.task('serve', function() {
+gulp.task('serve', function(){
 
 // initializing browsersync, telling it where to serve from
 
@@ -37,6 +39,14 @@ gulp.task('serve', function() {
     gulp.watch('./scss/*.scss', ['styles']);
 // upon change of any html will reload browserSync
     gulp.watch('./**/*.html').on('change', browserSync.reload);
+});
+
+// IMAGE TASK (compress and optimize images automatically)
+
+gulp.task('image', function(){
+    gulp.src('./img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./build/img'));
 });
 
 // include the tasks that ive created in an order that makes sense. in other words, run this when i run gulp
