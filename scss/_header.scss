@@ -26,9 +26,9 @@ ul {
 
 .header-banner {
   background-image: url('../img/lemuel-reyes-banner.png');
-  background-size:contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 1080px;
+  height: 100vh;
 }
 
 .hero-sub-text {
@@ -36,9 +36,9 @@ ul {
   font-family: 'Roboto', sans-serif;
   color: #00E2BD;
   font-weight: bold;
-  position: absolute;
-  top: 80%;
-  right: 1%;
+  position: relative;
+  bottom: 25vh;
+  left: 50vw;
   animation: floating-text 2s ease alternate infinite;
 }
 
