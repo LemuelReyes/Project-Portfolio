@@ -15,14 +15,24 @@ ul {
   ul li {
     padding-right: 4em; }
     ul li span {
-      color: #3fc6a5;
-      font-size: 2em; }
+      color: #9af4e5;
+      font-size: 2em;
+      font-family: 'Roboto'; }
 
 .header-banner {
   background-image: url("../img/lemuel-reyes-banner.png");
   background-size: contain;
   background-repeat: no-repeat;
   height: 1080px; }
+
+.hero-sub-text {
+  font-size: 4em;
+  font-family: 'Roboto', sans-serif;
+  color: #00E2BD;
+  font-weight: bold;
+  position: absolute;
+  top: 80%;
+  right: 1%; }
 
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**

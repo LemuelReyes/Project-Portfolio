@@ -17,8 +17,9 @@ ul {
     padding-right: 4em;
 
     span {
-      color: #3fc6a5;
+      color: #9af4e5;
       font-size: 2em;
+      font-family: 'Roboto';
     }
   }
 }
@@ -28,4 +29,14 @@ ul {
   background-size:contain;
   background-repeat: no-repeat;
   height: 1080px;
+}
+
+.hero-sub-text {
+  font-size: 4em;
+  font-family: 'Roboto', sans-serif;
+  color: #00E2BD;
+  font-weight: bold;
+  position: absolute;
+  top: 80%;
+  right: 1%;
 }
