@@ -32,7 +32,15 @@ ul {
   font-weight: bold;
   position: absolute;
   top: 80%;
-  right: 1%; }
+  right: 1%;
+  animation: floating-text 2s ease alternate infinite; }
+
+@keyframes floating-text {
+  0% {
+    transform: translateY(0.1em);
+    text-shadow: 0 0 0.5em rgba(255, 255, 255, 0.4), 0 0 0.2em rgba(0, 0, 0, 0.3), 0 0.3em 0.2em rgba(0, 0, 0, 0.3); }
+  100% {
+    text-shadow: 0 0 0.5em rgba(255, 255, 255, 0.4), 0 0 0.3em rgba(0, 0, 0, 0.3), 0 0.6em 0.6em rgba(0, 0, 0, 0.3); } }
 
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
